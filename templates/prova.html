@@ -58,22 +58,23 @@
         </div>
     </div>
 
-    <div class="sezione">
+        <div class="sezione">
         {% for cat, prods in menu.items() %}
             <h4>{{ cat }}</h4>
             <div style="display: flex; flex-wrap: wrap; justify-content: space-between;">
             {% if prods is iterable and prods is not string and prods is not mapping %}
                 {% for p in prods %}
-                    <button class="btn-prodotto" onclick="apriModal('{{ p }}', '{{ cat }}', null)">{{ p }}</button>
+                    <button class="btn-prodotto" onclick="apriModal('{{ p | replace("'", "\\'") }}', '{{ cat | replace("'", "\\'") }}', null)">{{ p }}</button>
                 {% endfor %}
             {% elif prods is mapping %}
                 {% for p, prezzo in prods.items() %}
-                    <button class="btn-prodotto" onclick="apriModal('{{ p }}', null, '{{ prezzo }}')">{{ p }} ({{ "%0.2f" | format(prezzo) }}€)</button>
+                    <button class="btn-prodotto" onclick="apriModal('{{ p | replace("'", "\\'") }}', null, '{{ prezzo }}')">{{ p }} ({{ "%0.2f" | format(prezzo) }}€)</button>
                 {% endfor %}
             {% endif %}
             </div>
         {% endfor %}
     </div>
+
 
     <div class="modal-overlay" id="custom-modal">
         <div class="modal-box">
@@ -289,3 +290,4 @@
     </script>
 </body>
 </html>
+
