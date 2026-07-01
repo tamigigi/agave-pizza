@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 
 # ---------------- CONFIGURAZIONE TELEGRAM ----------------
-TELEGRAM_TOKEN = "8768367698:AAHdPprO5i9b_iRUyoqcmsJtROsRccv9xHw"
+TELEGRAM_TOKEN = "8768367698:AAHdPpr05i9b_iRUyoqcmsJtR0sRccv9xHw"
 TELEGRAM_CHAT_ID = "635753889"
 
 def invia_backup_telegram(testo_conto):
